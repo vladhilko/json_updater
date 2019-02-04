@@ -1,5 +1,9 @@
 require "json_updater/version"
 
 module JsonUpdater
-  # Your code goes here...
+  class UpdateService
+    def self.update_json(args)
+      p args
+    end
+  end
 end

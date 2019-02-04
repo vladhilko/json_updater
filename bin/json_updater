@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require "json_updater"
+
+if ARGV[0]
+  JsonUpdater::UpdateService.update_json ARGV[0]
+else
+  raise 'Please, add a file path as an argument'
+end
