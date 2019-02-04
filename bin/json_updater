@@ -2,8 +2,8 @@
 
 require "json_updater"
 
-if ARGV[0]
-  JsonUpdater::UpdateService.update_json ARGV[0]
+if ARGV[0] && ARGV[1]
+  JsonUpdater::UpdateService.update_json(ARGV[0], ARGV[1])
 else
-  raise 'Please, add a file path as an argument'
+  puts 'Please, add a file path as an argument'
 end
