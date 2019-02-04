@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    json_updater (0.1.0)
+    json_updater (0.1.1)
       json
 
 GEM
