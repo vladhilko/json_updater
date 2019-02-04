@@ -1,7 +1,7 @@
 module JsonUpdater
   class JsonStructureUpdater
-    attr_reader :json_etalon, :changable_file_path
-    attr_accessor :json_changeble
+    attr_reader :changable_file_path
+    attr_accessor :json_changeble, :json_etalon
 
     def self.update_json(changable_file_path, etalon_file_path)
       new(changable_file_path, etalon_file_path).update_json
@@ -22,11 +22,9 @@ module JsonUpdater
     private
 
     def update_json_keys
-      keys_difference.each { |new_field| json_changeble[new_field] = nil }
-    end
-
-    def keys_difference
-      json_etalon.keys - json_changeble.keys
+      json_etalon.each do |key, value|
+        json_etalon[key] = json_changeble[key] if json_changeble.has_key?(key)
+      end
     end
 
     def rewrite_file
@@ -34,7 +32,7 @@ module JsonUpdater
     end
 
     def output_json
-      JSON.pretty_generate(json_changeble)
+      JSON.pretty_generate(json_etalon)
     end
   end
 end
