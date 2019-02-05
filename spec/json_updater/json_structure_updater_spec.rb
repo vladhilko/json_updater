@@ -10,7 +10,7 @@ describe JsonUpdater::JsonStructureUpdater do
       let(:expected_file)  { json_file("#{base_path}/add_fields/expected.json")}
 
       it 'adds addition fields to the json file' do
-
+        expect(described_class.update_json(changable_file, etalon_file)).to eq expected_file
       end
     end
 
