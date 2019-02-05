@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module JsonUpdater
   class OneLevelJsonArrayBuilder
     attr_reader   :json_etalon

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module JsonUpdater
   class JsonStructureUpdater
     attr_reader   :json_etalon
@@ -19,8 +21,8 @@ module JsonUpdater
     private
 
     def update_json_keys
-      json_etalon.each do |key, value|
-        json_etalon[key] = json_changeable[key] if json_changeable.has_key?(key)
+      json_etalon.each do |key, _value|
+        json_etalon[key] = json_changeable[key] if json_changeable.key?(key)
       end
     end
   end

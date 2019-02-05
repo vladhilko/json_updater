@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module JsonUpdater
   class JsonTypeDetector
     attr_reader :json_changeble
@@ -11,10 +13,9 @@ module JsonUpdater
     end
 
     def detect_type
-      case
-      when is_one_level_json?
+      if is_one_level_json?
         JsonUpdater::OneLevelJsonBuilder
-      when is_one_level_json_array?
+      elsif is_one_level_json_array?
         JsonUpdater::OneLevelJsonArrayBuilder
       end
     end
