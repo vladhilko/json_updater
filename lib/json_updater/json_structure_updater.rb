@@ -2,8 +2,7 @@
 
 module JsonUpdater
   class JsonStructureUpdater
-    attr_reader   :json_etalon
-    attr_accessor :json_changeable
+    attr_reader :json_etalon, :json_changeable
 
     def self.update_json(json_changeable, json_etalon)
       new(json_changeable, json_etalon).update_json

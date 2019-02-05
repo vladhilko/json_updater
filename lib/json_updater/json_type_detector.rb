@@ -13,20 +13,20 @@ module JsonUpdater
     end
 
     def detect_type
-      if is_one_level_json?
+      if one_level_json?
         JsonUpdater::OneLevelJsonBuilder
-      elsif is_one_level_json_array?
+      elsif one_level_json_array?
         JsonUpdater::OneLevelJsonArrayBuilder
       end
     end
 
     private
 
-    def is_one_level_json?
+    def one_level_json?
       json_changeble.is_a?(Hash)
     end
 
-    def is_one_level_json_array?
+    def one_level_json_array?
       json_changeble.is_a?(Array)
     end
   end

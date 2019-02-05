@@ -31,7 +31,7 @@ module JsonUpdater
     private
 
     def rewrite_file
-      File.open(changable_file_path, 'w') { |f| f.write(output_json) }
+      File.open(changable_file_path, 'w') { |file| file.write(output_json) }
     end
 
     def output_json

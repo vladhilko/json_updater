@@ -2,8 +2,7 @@
 
 module JsonUpdater
   class OneLevelJsonArrayBuilder
-    attr_reader   :json_etalon
-    attr_accessor :json_changeble
+    attr_reader :json_etalon, :json_changeble
 
     def self.build(json_changeble, json_etalon)
       new(json_changeble, json_etalon).build
