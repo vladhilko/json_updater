@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Petr",
+    "car": null,
+    "available": "true"
+  },
+  {
+    "name": "Nick",
+    "car": "Mazda",
+    "available": "true"
+  },
+  {
+    "name": "Tomash",
+    "car": "KIA",
+    "available": "true"
+  }
+]
