@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Petr",
+    "age": 35,
+    "car": null,
+    "available": null,
+    "another_field": null,
+    "one_more_field": null
+  },
+  {
+    "name": "Nick",
+    "age": 23,
+    "car": "Mazda",
+    "available": null,
+    "another_field": null,
+    "one_more_field": null
+  },
+  {
+    "name": "Tomash",
+    "age": 25,
+    "car": "KIA",
+    "available": null,
+    "another_field": null,
+    "one_more_field": null
+  }
+]
