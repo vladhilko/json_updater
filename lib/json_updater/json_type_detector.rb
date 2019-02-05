@@ -2,12 +2,12 @@ module JsonUpdater
   class JsonTypeDetector
     attr_reader :json_changeble
 
-    def self.detect_type(changable_file_path)
-      new(changable_file_path).detect_type
+    def self.detect_type(json_changeble)
+      new(json_changeble).detect_type
     end
 
-    def initialize(changable_file_path)
-      @json_changeble = JSON.parse(File.open(changable_file_path).read)
+    def initialize(json_changeble)
+      @json_changeble = json_changeble
     end
 
     def detect_type
