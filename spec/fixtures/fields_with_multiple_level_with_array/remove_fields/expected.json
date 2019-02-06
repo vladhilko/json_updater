@@ -1,0 +1,19 @@
+{
+  "name": "Nick",
+  "age": 12,
+  "car": {
+    "model": "Mazda",
+    "country": {
+      "name": "Japan",
+      "language": "japanese",
+      "population": [
+        {
+          "size": "120 mln"
+        },
+        {
+          "size": "320 mln"
+        }
+      ]
+    }
+  }
+}

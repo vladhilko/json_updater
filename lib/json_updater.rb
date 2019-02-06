@@ -35,25 +35,26 @@ module JsonUpdater
     end
 
     def output_json
-      JSON.pretty_generate(recursion_updation)
+      JSON.pretty_generate(recursion_updation(json_changeble, json_etalon))
     end
 
-    def updated_json
-      @updated_json ||= JsonTypeDetector.detect_type(json_changeble).build(json_changeble, json_etalon)
-    end
-
-    def recursion_updation
-      json_etalon.each do |key, value|
-        if value.is_a?(Hash)
-          old_json = updated_json[key]
-          updated_json[key] = JsonTypeDetector.detect_type(old_json).build(old_json, value)
+    def recursion_updation(mutation_json, inner_json_etalon)
+      inner_json_etalon.each do |etalon_field_key, etalon_field_value|
+        if fields_not_include_hash?(inner_json_etalon)
+          mutation_json = JsonTypeDetector.detect_type(mutation_json).build(mutation_json, inner_json_etalon)
+          break
+        elsif etalon_field_value.is_a?(Hash)
+          inner_changeble_json = mutation_json[etalon_field_key]
+          recursion_updation(inner_changeble_json, etalon_field_value)
+          mutation_json[etalon_field_key] = JsonTypeDetector.detect_type(inner_changeble_json).build(inner_changeble_json, etalon_field_value)
         end
       end
-      updated_json
+      mutation_json
     end
 
-    def field_include_array?; end
-
-    def field_include_hash?; end
+    def fields_not_include_hash?(json)
+      json.each { |_key, value| return false if value.is_a?(Hash) }
+      true
+    end
   end
 end
