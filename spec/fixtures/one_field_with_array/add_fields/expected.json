@@ -3,17 +3,29 @@
     {
       "model": "Mazda",
       "country": "Japan",
-      "motor": null
+      "motor": null,
+      "main": {
+        "number": "20",
+        "document_id": "1"
+      }
     },
     {
       "model": "Zil",
       "country": "Russia",
-      "motor": null
+      "motor": null,
+      "main": {
+        "number": "21",
+        "document_id": "1"
+      }
     },
     {
       "model": "Ford",
       "country": "USA",
-      "motor": null
+      "motor": null,
+      "main": {
+        "number": "22",
+        "document_id": "1"
+      }
     }
   ]
 }
