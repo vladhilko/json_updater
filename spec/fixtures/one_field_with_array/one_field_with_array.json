@@ -1,0 +1,16 @@
+{
+  "cars": [
+    {
+      "model": "Mazda",
+      "country": "Japan"
+    },
+    {
+      "model": "Zil",
+      "country": "Russia"
+    },
+    {
+      "model": "Ford",
+      "country": "USA"
+    }
+  ]
+}

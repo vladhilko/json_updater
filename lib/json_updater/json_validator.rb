@@ -24,13 +24,11 @@ module JsonUpdater
     end
 
     def json_valid?
-      begin
-        file = File.open(path).read
-        JSON.parse(file)
-        true
-      rescue JSON::ParserError => _e
-        false
-      end
+      file = File.open(path).read
+      JSON.parse(file)
+      true
+    rescue JSON::ParserError => _e
+      false
     end
   end
 end
