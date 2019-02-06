@@ -1,0 +1,8 @@
+{
+  "name": "Antuan",
+  "age": 12,
+  "car": {
+    "model": "BMV",
+    "motor": null
+  }
+}
