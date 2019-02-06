@@ -8,6 +8,7 @@ require 'json_updater/one_level_json_array_builder'
 
 require 'json_updater/json_structure_updater'
 require 'json_updater/json_type_detector'
+require 'json_updater/json_validator'
 
 module JsonUpdater
   class UpdateService
@@ -35,25 +36,25 @@ module JsonUpdater
     end
 
     def output_json
-      JSON.pretty_generate(recursion_updation)
+      JSON.pretty_generate(recursion_updation(json_changeble, json_etalon))
     end
 
-    def updated_json
-      @updated_json ||= JsonTypeDetector.detect_type(json_changeble).build(json_changeble, json_etalon)
-    end
+    def recursion_updation(mutation_json, inner_json_etalon)
+      if etalon_not_include_hash?(inner_json_etalon)
+        return JsonTypeDetector.detect_type(mutation_json).build(mutation_json, inner_json_etalon)
+      end
 
-    def recursion_updation
-      json_etalon.each do |key, value|
-        if value.is_a?(Hash)
-          old_json = updated_json[key]
-          updated_json[key] = JsonTypeDetector.detect_type(old_json).build(old_json, value)
+      inner_json_etalon.each do |etalon_field_key, etalon_field_value|
+        if etalon_field_value.is_a?(Hash)
+          mutation_json[etalon_field_key] = recursion_updation(mutation_json[etalon_field_key], etalon_field_value)
         end
       end
-      updated_json
+      JsonTypeDetector.detect_type(mutation_json).build(mutation_json, inner_json_etalon)
     end
 
-    def field_include_array?; end
-
-    def field_include_hash?; end
+    def etalon_not_include_hash?(json)
+      json.each { |_key, value| return false if value.is_a?(Hash) }
+      true
+    end
   end
 end

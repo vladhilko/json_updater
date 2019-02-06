@@ -1,0 +1,13 @@
+{
+  "name": "Petr",
+  "age": 22,
+  "car": {
+    "model": "BMV",
+    "country": {
+      "language": "germanese",
+      "population": {
+        "size": "80 mln"
+      }
+    }
+  }
+}

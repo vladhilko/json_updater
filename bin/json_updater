@@ -2,8 +2,12 @@
 
 require "json_updater"
 
-if ARGV[0] && ARGV[1]
+arg1 = JsonUpdater::JsonValidator.new(ARGV[0])
+arg2 = JsonUpdater::JsonValidator.new(ARGV[1])
+
+if arg1.valid? && arg2.valid?
   JsonUpdater::UpdateService.update_json(ARGV[0], ARGV[1])
 else
-  puts 'Please, add a file path as an argument'
+  puts arg1.messages
+  puts arg2.messages
 end
