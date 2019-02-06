@@ -45,16 +45,15 @@ module JsonUpdater
     def recursion_updation
       json_etalon.each do |key, value|
         if value.is_a?(Hash)
-          updated_json[key] = JsonTypeDetector.detect_type(updated_json[key]).build(updated_json[key], value)
+          old_json = updated_json[key]
+          updated_json[key] = JsonTypeDetector.detect_type(old_json).build(old_json, value)
         end
       end
       updated_json
     end
 
-    def field_include_array?
-    end
+    def field_include_array?; end
 
-    def field_include_hash?
-    end
+    def field_include_hash?; end
   end
 end
