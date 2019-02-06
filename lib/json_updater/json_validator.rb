@@ -6,7 +6,6 @@ module JsonUpdater
 
     def initialize(path)
       @path = path
-      @messages = []
     end
 
     def valid?
@@ -14,9 +13,8 @@ module JsonUpdater
     end
 
     def messages
-      @messages << "#{path} - file does't exist" unless file_exist?
-      @messages << "#{path} - json file doesn't valid" unless json_valid?
-      @messages.join(', ')
+      return "#{path} - file does't exist" unless file_exist?
+      return "#{path} - json file doesn't valid" unless json_valid?
     end
 
     private
@@ -27,7 +25,8 @@ module JsonUpdater
 
     def json_valid?
       begin
-        JSON.parse(path)
+        file = File.open(path).read
+        JSON.parse(file)
         true
       rescue JSON::ParserError => _e
         false
