@@ -8,6 +8,7 @@ require 'json_updater/one_level_json_array_builder'
 
 require 'json_updater/json_structure_updater'
 require 'json_updater/json_type_detector'
+require 'json_updater/json_validator'
 
 module JsonUpdater
   class UpdateService
