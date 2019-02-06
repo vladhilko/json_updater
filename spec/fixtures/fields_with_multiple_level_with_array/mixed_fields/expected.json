@@ -3,6 +3,7 @@
   "age": 12,
   "car": {
     "model": "Mazda",
+    "second_model": "BMV 2",
     "country": {
       "name": "Japan",
       "language": "japanese",

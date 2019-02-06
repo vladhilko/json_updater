@@ -4,7 +4,6 @@
   "car": {
     "model": "BMV",
     "country": {
-      "name": "Germany",
       "language": "germanese",
       "population": {
         "size": "80 mln"

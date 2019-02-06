@@ -4,7 +4,6 @@
   "car": {
     "model": "Mazda",
     "country": {
-      "name": "Japan",
       "language": "japanese",
       "population": [
         {

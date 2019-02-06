@@ -3,6 +3,7 @@
   "age": 22,
   "car": {
     "model": "BMV",
+    "second_model": "BMV 2",
     "country": {
       "name": "Germany",
       "language": "germanese",
