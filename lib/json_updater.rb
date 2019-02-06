@@ -44,7 +44,7 @@ module JsonUpdater
 
     def recursion_updation
       json_etalon.each do |key, value|
-        if value.is_a?(Array) || value.is_a?(Hash)
+        if value.is_a?(Hash)
           updated_json[key] = JsonTypeDetector.detect_type(updated_json[key]).build(updated_json[key], value)
         end
       end
