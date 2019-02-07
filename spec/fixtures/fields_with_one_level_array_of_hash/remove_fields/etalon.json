@@ -1,7 +1,7 @@
 {
   "name": "Antuan",
   "age": 12,
-  "car": {
+  "cars": [{
     "model": "BMV"
-  }
+  }]
 }

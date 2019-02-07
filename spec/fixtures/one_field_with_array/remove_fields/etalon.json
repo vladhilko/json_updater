@@ -1,5 +1,5 @@
 {
-  "cars": {
+  "cars": [{
     "model": "BMV"
-  }
+  }]
 }

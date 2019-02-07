@@ -5,9 +5,9 @@
     "model": "BMV",
     "country": {
       "language": "germanese",
-      "population": {
+      "population": [{
         "size": "80 mln"
-      }
+      }]
     }
   }
 }
