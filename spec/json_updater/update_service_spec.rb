@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'shared_examples/json_updater_shared'
+require 'shared_examples/json_updater_shared_spec'
 
 describe JsonUpdater::UpdateService do
   describe '#update_json' do
