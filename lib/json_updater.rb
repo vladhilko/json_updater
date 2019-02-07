@@ -40,7 +40,7 @@ module JsonUpdater
     end
 
     def recursion_updation(mutation_json, inner_json_etalon)
-      if etalon_not_include_hash?(inner_json_etalon)
+      if etalon_not_include_hash_or_array?(inner_json_etalon)
         return JsonTypeDetector.detect_type(mutation_json).build(mutation_json, inner_json_etalon)
       end
 
@@ -48,12 +48,18 @@ module JsonUpdater
         if etalon_field_value.is_a?(Hash)
           mutation_json[etalon_field_key] = recursion_updation(mutation_json[etalon_field_key], etalon_field_value)
         end
+
+        if etalon_field_value.is_a?(Array)
+          mutation_json[etalon_field_key] = mutation_json[etalon_field_key].map do |hash|
+            recursion_updation(hash, etalon_field_value.first)
+          end
+        end
       end
       JsonTypeDetector.detect_type(mutation_json).build(mutation_json, inner_json_etalon)
     end
 
-    def etalon_not_include_hash?(json)
-      json.each { |_key, value| return false if value.is_a?(Hash) }
+    def etalon_not_include_hash_or_array?(json)
+      json.each { |_key, value| return false if value.is_a?(Hash) || value.is_a?(Array) }
       true
     end
   end

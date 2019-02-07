@@ -1,6 +1,6 @@
 {
-  "cars": {
+  "cars": [{
     "model": "BMV",
     "motor": null
-  }
+  }]
 }

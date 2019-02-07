@@ -1,5 +1,5 @@
 {
-  "cars": {
+  "cars": [{
     "model": "BMV",
     "country": "Germany",
     "motor": null,
@@ -7,5 +7,5 @@
       "number": "2",
       "document_id": "1"
     }
-  }
+  }]
 }

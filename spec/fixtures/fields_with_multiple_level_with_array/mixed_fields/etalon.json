@@ -7,10 +7,10 @@
     "country": {
       "name": "Germany",
       "language": "germanese",
-      "population": {
+      "population": [{
         "size": "80 mln",
         "average_age": "55"
-      }
+      }]
     }
   }
 }
