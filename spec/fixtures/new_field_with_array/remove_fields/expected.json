@@ -1,0 +1,14 @@
+{
+  "name": "Nick",
+  "cars": [
+    {
+      "model": "Mazda"
+    },
+    {
+      "model": "Zil"
+    },
+    {
+      "model": "Ford"
+    }
+  ]
+}
