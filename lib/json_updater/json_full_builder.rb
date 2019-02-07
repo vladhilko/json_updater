@@ -29,11 +29,15 @@ module JsonUpdater
     end
 
     def dive_inside(mutation_field_value, etalon_field_value)
+      return etalon_field_value if mutation_field_value.nil?
+
       case etalon_field_value
       when Hash
         recursion_updation(mutation_field_value, etalon_field_value)
       when Array
         mutation_field_value.map { |hash| recursion_updation(hash, etalon_field_value.first) }
+      when NilClass
+        etalon_field_value
       end
     end
 
