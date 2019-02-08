@@ -6,7 +6,7 @@ arg1 = JsonUpdater::JsonValidator.new(ARGV[0])
 arg2 = JsonUpdater::JsonValidator.new(ARGV[1])
 
 if arg1.valid? && arg2.valid?
-  JsonUpdater::UpdateService.update_json(ARGV[0], ARGV[1])
+  JsonUpdater::UpdateService.update_json(etalon_file_path: ARGV[0], changable_file_path: ARGV[1])
 else
   puts arg1.messages
   puts arg2.messages

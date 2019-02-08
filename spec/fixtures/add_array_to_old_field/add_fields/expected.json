@@ -1,0 +1,21 @@
+{
+  "name": "Nick",
+  "age": 12,
+  "cars": [
+    {
+      "model": "Mazda",
+      "country": "Japan",
+      "motor": null
+    },
+    {
+      "model": "Zil",
+      "country": "Russia",
+      "motor": null
+    },
+    {
+      "model": "Ford",
+      "country": "USA",
+      "motor": null
+    }
+  ]
+}

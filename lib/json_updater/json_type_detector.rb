@@ -2,14 +2,14 @@
 
 module JsonUpdater
   class JsonTypeDetector
-    attr_reader :json_changeble
+    attr_reader :json_changeable
 
-    def self.detect_type(json_changeble)
-      new(json_changeble).detect_type
+    def self.detect_type(json_changeable)
+      new(json_changeable).detect_type
     end
 
-    def initialize(json_changeble)
-      @json_changeble = json_changeble
+    def initialize(json_changeable)
+      @json_changeable = json_changeable
     end
 
     def detect_type
@@ -23,11 +23,11 @@ module JsonUpdater
     private
 
     def one_level_json?
-      json_changeble.is_a?(Hash)
+      json_changeable.is_a?(Hash)
     end
 
     def one_level_json_array?
-      json_changeble.is_a?(Array)
+      json_changeable.is_a?(Array)
     end
   end
 end

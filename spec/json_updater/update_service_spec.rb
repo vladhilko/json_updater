@@ -14,5 +14,7 @@ describe JsonUpdater::UpdateService do
     include_examples 'json updater', 'one_field_with_array'
     include_examples 'json updater', 'new_field_with_hash'
     include_examples 'json updater', 'new_field_with_array'
+    include_examples 'json updater', 'add_hash_to_old_field'
+    include_examples 'json updater', 'add_array_to_old_field'
   end
 end

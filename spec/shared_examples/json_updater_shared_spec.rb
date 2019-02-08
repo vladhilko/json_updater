@@ -4,15 +4,15 @@ require 'spec_helper'
 
 RSpec.shared_examples 'json updater' do |name|
   context "when json has #{name} structure" do
-    let(:base_path)           { "spec/fixtures/#{name}" }
-    let(:changable_file_path) { "#{base_path}/#{name}.json" }
-    let(:temp_path)           { "#{base_path}/temp.json" }
+    let(:base_path)            { "spec/fixtures/#{name}" }
+    let(:changeable_file_path) { "#{base_path}/#{name}.json" }
+    let(:temp_path)            { "#{base_path}/temp.json" }
 
-    let!(:temp_file) { File.open(changable_file_path).read }
+    let!(:temp_file) { File.open(changeable_file_path).read }
 
     before do
       File.open(temp_path, 'w') { |f| f.write(temp_file) }
-      described_class.update_json(temp_path, etalon_file_path)
+      described_class.update_json(etalon_file_path: etalon_file_path, changeable_file_path: temp_path)
     end
 
     after do
