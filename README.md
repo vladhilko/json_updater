@@ -30,7 +30,7 @@ You can add new fields or delete old ones at any nesting level. Everything works
 
 <details>
 <summary>
-   <h3> Add new fields  </h3>
+   <h3> `Add new fields`  </h3>
 </summary>
    
 ```json
@@ -67,7 +67,7 @@ You can add new fields or delete old ones at any nesting level. Everything works
 ___
 <details>
 <summary>
-   <h3> Remove old fields  </h3>
+   <h3> `Remove old fields`  </h3>
 </summary>
    
 ```json
@@ -95,7 +95,7 @@ ___
 
 <details>
 <summary>
-   <h3> Add new fields to hash inside array  </h3>
+   <h3> `Add new fields to hash inside array`  </h3>
 </summary>
    
 ```json
@@ -182,7 +182,7 @@ ___
 
 <details>
 <summary>
-   <h3> Update the lowest level of nesting </h3>
+   <h3> `Update the lowest level of nesting` </h3>
 </summary>
    
 ```json
