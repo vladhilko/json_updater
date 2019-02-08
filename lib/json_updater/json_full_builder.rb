@@ -29,7 +29,7 @@ module JsonUpdater
     end
 
     def dive_inside(mutation_field_value, etalon_field_value)
-      return etalon_field_value unless mutation_field_value
+      return etalon_field_value unless hash_or_array?(mutation_field_value)
 
       case etalon_field_value
       when Hash
