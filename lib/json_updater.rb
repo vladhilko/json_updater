@@ -13,17 +13,17 @@ require 'json_updater/json_validator'
 
 module JsonUpdater
   class UpdateService
-    attr_reader :changable_file_path, :json_changeble, :json_etalon
+    attr_reader :changeable_file_path, :json_changeable, :json_etalon
 
-    def self.update_json(changable_file_path, etalon_file_path)
-      new(changable_file_path, etalon_file_path).update_json
+    def self.update_json(changeable_file_path:, etalon_file_path:)
+      new(changeable_file_path: changeable_file_path, etalon_file_path: etalon_file_path).update_json
     end
 
-    def initialize(changable_file_path, etalon_file_path)
-      @changable_file_path = changable_file_path
+    def initialize(changeable_file_path:, etalon_file_path:)
+      @changeable_file_path = changeable_file_path
 
-      @json_changeble = JSON.parse(File.open(changable_file_path).read)
-      @json_etalon    = JSON.parse(File.open(etalon_file_path).read)
+      @json_changeable = JSON.parse(File.open(changeable_file_path).read)
+      @json_etalon = JSON.parse(File.open(etalon_file_path).read)
     end
 
     def update_json
@@ -33,7 +33,7 @@ module JsonUpdater
     private
 
     def rewrite_file
-      File.open(changable_file_path, 'w') { |file| file.write(output_json) }
+      File.open(changeable_file_path, 'w') { |file| file.write(output_json) }
     end
 
     def output_json
@@ -41,7 +41,7 @@ module JsonUpdater
     end
 
     def updated_json
-      JsonUpdater::JsonFullBuilder.build(json_changeble, json_etalon)
+      JsonUpdater::JsonFullBuilder.build(json_changeable: json_changeable, json_etalon: json_etalon)
     end
   end
 end

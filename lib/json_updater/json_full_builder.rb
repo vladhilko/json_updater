@@ -2,19 +2,19 @@
 
 module JsonUpdater
   class JsonFullBuilder
-    attr_reader :json_etalon, :json_changeble
+    attr_reader :json_etalon, :json_changeable
 
-    def self.build(json_changeble, json_etalon)
-      new(json_changeble, json_etalon).build
+    def self.build(json_changeable:, json_etalon:)
+      new(json_changeable: json_changeable, json_etalon: json_etalon).build
     end
 
-    def initialize(json_changeble, json_etalon)
-      @json_changeble = json_changeble
-      @json_etalon    = json_etalon
+    def initialize(json_changeable:, json_etalon:)
+      @json_changeable = json_changeable
+      @json_etalon = json_etalon
     end
 
     def build
-      recursion_updation(json_changeble, json_etalon)
+      recursion_updation(json_changeable, json_etalon)
     end
 
     private
@@ -25,7 +25,7 @@ module JsonUpdater
           mutation_json[etalon_field_key] = dive_inside(mutation_json[etalon_field_key], etalon_field_value)
         end
       end
-      JsonTypeDetector.detect_type(mutation_json).build(mutation_json, inner_json_etalon)
+      JsonTypeDetector.detect_type(mutation_json).build(json_changeable: mutation_json, json_etalon: inner_json_etalon)
     end
 
     def dive_inside(mutation_field_value, etalon_field_value)

@@ -12,7 +12,7 @@ describe JsonUpdater::OneLevelJsonArrayBuilder do
       let(:expected_file)  { json_file("#{base_path}/add_fields/expected.json") }
 
       it 'adds addition fields to the json file' do
-        expect(described_class.build(changable_file, etalon_file)).to eq expected_file
+        expect(described_class.build(json_changeable: changable_file, json_etalon: etalon_file)).to eq expected_file
       end
     end
 
@@ -21,7 +21,7 @@ describe JsonUpdater::OneLevelJsonArrayBuilder do
       let(:expected_file)  { json_file("#{base_path}/remove_fields/expected.json") }
 
       it 'removes addition fields from the json file' do
-        expect(described_class.build(changable_file, etalon_file)).to eq expected_file
+        expect(described_class.build(json_changeable: changable_file, json_etalon: etalon_file)).to eq expected_file
       end
     end
 
@@ -30,7 +30,7 @@ describe JsonUpdater::OneLevelJsonArrayBuilder do
       let(:expected_file)  { json_file("#{base_path}/mixed_fields/expected.json") }
 
       it 'adds and removes addition fields from the json file' do
-        expect(described_class.build(changable_file, etalon_file)).to eq expected_file
+        expect(described_class.build(json_changeable: changable_file, json_etalon: etalon_file)).to eq expected_file
       end
     end
   end

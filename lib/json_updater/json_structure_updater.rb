@@ -4,11 +4,11 @@ module JsonUpdater
   class JsonStructureUpdater
     attr_reader :json_etalon, :json_changeable
 
-    def self.update_json(json_changeable, json_etalon)
-      new(json_changeable, json_etalon).update_json
+    def self.update_json(json_changeable:, json_etalon:)
+      new(json_changeable: json_changeable, json_etalon: json_etalon).update_json
     end
 
-    def initialize(json_changeable, json_etalon)
+    def initialize(json_changeable:, json_etalon:)
       @json_changeable = json_changeable
       @json_etalon     = json_etalon.dup
     end
