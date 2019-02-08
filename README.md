@@ -22,7 +22,42 @@ Or install it yourself as:
 
 To use this gem just write:
 
-    $ json_updater path_to_expected_file.json path_to_changeable_file.jsob 
+    $ json_updater path_to_etalon_file.json path_to_changeable_file.json 
+    
+You can add new fields or delete old ones at any nesting level. Everything works well for fields with arrays too.
+
+```json
+# the simplest example
+
+# etalon_file.json
+{
+  "name": "John",
+  "age": 30,
+  "car": null,
+  "available": null,
+  "another_field": null,
+  "one_more_field": null
+}
+
+# changeable_file.json
+{
+  "name": "Nick",
+  "age": 12,
+  "car": null
+}
+
+# json_updater etalon_file.json changeable_file.json
+# result =>
+
+{
+  "name": "Nick",
+  "age": 12,
+  "car": null,
+  "available": null,
+  "another_field": null,
+  "one_more_field": null
+}
+```
 
 ## Contributing
 
